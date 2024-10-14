@@ -1,0 +1,78 @@
+/* Main container styling */
+.image-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 500px; 
+  overflow: hidden;
+  background-position: center;
+  background-size: cover;
+}
+
+/* Main image styling */
+.main-image {
+  position: relative;
+  z-index: 2;
+  width: 50%;
+  height: auto;
+  object-fit: cover;
+  border: 2px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Blurred background */
+.image-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../Images/1.avif'); 
+  background-position: center;
+  background-size: cover;
+  filter: blur(20px);
+  z-index: 1;
+  transform: scale(1.2); 
+  opacity: 0.7;
+}
+
+/* Thumbnail row styling */
+.thumbnail-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 0;
+  overflow-x: auto;
+}
+
+.thumbnail-col {
+  flex: 0 0 auto;
+}
+
+.thumbnail-button {
+  padding: 0;
+  border: none;
+}
+
+.thumbnail-image {
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+/* Add hover effect for thumbnails */
+.thumbnail-image:hover {
+  transform: scale(1.05);
+  border-color: #007bff;
+}
+
+/* Selected thumbnail style */
+.thumbnail-button.selected .thumbnail-image {
+  border-color: #007bff;
+  transform: scale(1.1);
+}
